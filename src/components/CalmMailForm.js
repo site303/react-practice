@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function CalmMailForm() {
+  const [email, setEmail] = useState("");
+
+  function handleChange(e) {
+    setEmail(e.target.value);
+  }
 
   return (
     <section className="calm__mail-form">
@@ -16,7 +21,9 @@ function CalmMailForm() {
               type="email"
               id="email"
               name="email"
-              value=""
+              value={email}
+              onChange={handleChange}
+              placeholder="example@mail.com"
             />
             <button type="submit" className="btn">Подписаться</button>
           </form>
